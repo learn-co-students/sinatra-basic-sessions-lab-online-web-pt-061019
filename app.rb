@@ -11,12 +11,17 @@ class App < Sinatra::Base
         erb :index
     end
 
-    get '/checkout' do
-        session[:name] = ""
-        @session = session
-    end
-
     post '/checkout' do
-        params[:item]
+        # binding.pry     
+        session[:item] = params[:item]
+        @session = session
+        erb :checkout       
     end
 end
+
+
+# modify and add data to the session hash by adding a key-value pair
+# get '/hey' do 
+#     session["name"] = "Victoria"
+#     @session = session
+#   end
